@@ -3,33 +3,38 @@
 
 <div id="zatemnenie">
     <div id="okno">
-        <div class="MyWindow">
-            <div class="WindowTitle">
-                <a class="WindowTitleText"></a>
+        <form action="/Contact/Index" method="post">
+            <div class="MyWindow">
+                <div class="WindowTitle">
+                    <a class="WindowTitleText">###</a>
+                </div>
+                <div class="InputName">
+                    <a>Name</a>
+                    <input type="text" />
+                    <a class="ErrorName"></a>
+                </div>
+                <div class="InputPhone">
+                    <a>Phone Number</a>
+                    <input type="tel" />
+                    <a class="ErrorPhone"></a>
+                </div>
+                <div class="InputJobTitle">
+                    <a>Job</a>
+                    <input type="text" />
+                    <a class="ErrorJob"></a>
+                </div>
+                <div class="InputBirthDay">
+                    <a>BirthDay</a>
+                    <input type="date" />
+                    <a class="BirthDay"></a>
+                </div>
+
             </div>
-            <div class="InputName">
-                <a>Name</a>
-                <input type="text"/>
-                <a class="ErrorName"></a>
+            <div class="WindowButtons">
+                <a href="#" class="close">Закрыть окно</a>
+                <a href="#" class="close">Добавить пользователя</a>
             </div>
-            <div class="InputPhone">
-                <a>Phone Number</a>
-                <input type="tel"/>
-                <a class="ErrorPhone"></a>
-            </div>
-            <div class="InputJobTitle">
-                <a>Job</a>
-                <input type="text"/>
-                <a class="ErrorJob"></a>
-            </div>
-            <div class="InputBirthDay">
-                <a>BirthDay</a>
-                <input type="date" />
-                <a class="BirthDay"></a>
-            </div>
-   
-        </div>
-        <a href="#" class="close">Закрыть окно</a>
+        </form>
     </div>
 </div>
 <div class="MyTable">
