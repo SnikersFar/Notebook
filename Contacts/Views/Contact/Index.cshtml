@@ -3,36 +3,33 @@
 
 <div id="zatemnenie">
     <div id="okno">
-        <form action="/Contact/Index" method="post">
+        <form action="/Contact/Index" method="post" id="WindowForm">
+            @Html.HiddenFor(x => x.FirstOrDefault().Id)
             <div class="MyWindow">
                 <div class="WindowTitle">
-                    <a class="WindowTitleText">###</a>
+                    <a class="WindowTitleText">Add Contact</a>
                 </div>
                 <div class="InputName">
                     <a>Name</a>
-                    <input type="text" />
-                    <a class="ErrorName"></a>
+                    <input required="required" type="text" name="Name" id="InputNamePlace" />
                 </div>
                 <div class="InputPhone">
                     <a>Phone Number</a>
-                    <input type="tel" />
-                    <a class="ErrorPhone"></a>
+                    <input type="tel" name="MobilePhone" id="InputMobilePhonePlace"/>
                 </div>
                 <div class="InputJobTitle">
                     <a>Job</a>
-                    <input type="text" />
-                    <a class="ErrorJob"></a>
+                    <input type="text" name="JobTitle" id="InputJobTitlePlace" />
                 </div>
                 <div class="InputBirthDay">
                     <a>BirthDay</a>
-                    <input type="date" />
-                    <a class="BirthDay"></a>
+                    <input required="required" type="date" name="BirthDay" id="InputBirthDayPlace" max="@DateTime.Now.AddYears(-18).Year-01-01"/>
                 </div>
 
             </div>
             <div class="WindowButtons">
-                <a href="#" class="close">Закрыть окно</a>
-                <a href="#" class="close">Добавить пользователя</a>
+                <a href="#" class="close">Close</a>
+                <input type="submit" value="Add" id="InputWindowSaveButton" class="WindowSaveButton">
             </div>
         </form>
     </div>
@@ -44,19 +41,18 @@
             <th>Mobile Phone</th>
             <th>JobTitle</th>
             <th>BirthDate</th>
-            <th colspan="2"><a href="#" class="addButton">Добавить</a></th>
+            <th colspan="2"><a href="#zatemnenie" class="addButton">Добавить</a></th>
         </tr>
         @foreach (var contact in Model)
         {
             <tr>
-                <th><a>@contact.Name</a></th>
-                <th><a>@contact.MobilePhone</a></th>
-                <th><a>@contact.JobTitle</a></th>
-                <th><a>@contact.BirthDay.ToShortDateString()</a></th>
-                <th><a href="#">Edit</a></th>
-                <th><a href="#">Delete</a></th>
+                <th><a id="Name-@contact.Id">@contact.Name</a></th>
+                <th><a id="MobilePhone-@contact.Id">@contact.MobilePhone</a></th>
+                <th><a id="JobTitle-@contact.Id">@contact.JobTitle</a></th>
+                <th><a id="BirthDay-@contact.Id">@contact.BirthDay.ToShortDateString()</a></th>
+                <th><a href="#zatemnenie" class="EditButton" id="@contact.Id">Edit</a></th>
+                <th><a href="~/Contact/Remove?Id=@contact.Id">Delete</a></th>
             </tr>
         }
     </table>
 </div>
-<a href="#zatemnenie">Вызвать всплывающее окно</a>

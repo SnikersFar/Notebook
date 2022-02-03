@@ -10,11 +10,11 @@
 
 #okno {
     width: 500px;
-    height: 200px;
-    text-align: center;
+    height: 220px;
+    text-align: start;
     padding: 15px;
     border: 3px solid #f2906b;
-    border-radius: 10px;
+    border-radius: 20px;
     position: absolute;
     top: 0;
     right: 0;
@@ -43,3 +43,13 @@
     .close:hover {
         background: #e6e6ff;
     }
+
+
+input[type=submit] {
+    padding: 5px 15px;
+    background: #ccc;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
