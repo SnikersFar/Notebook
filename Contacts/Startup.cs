@@ -1,4 +1,5 @@
 using Contacts.EfStuff;
+using Contacts.EfStuff.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,7 +28,8 @@ namespace Contacts
         {
             var connectString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=WebContacts;Integrated Security=True;";
             services.AddDbContext<WebContext>(x => x.UseSqlServer(connectString));
-
+            services.AddScoped<ContactRepository>();
+            services.AddHttpContextAccessor();
             services.AddControllersWithViews();
         }
 

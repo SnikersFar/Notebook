@@ -1,6 +1,57 @@
-﻿
+﻿@using Contacts.EfStuff.DbModel
+@model List<Contact>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="zatemnenie">
+    <div id="okno">
+        <div class="MyWindow">
+            <div class="WindowTitle">
+                <a class="WindowTitleText"></a>
+            </div>
+            <div class="InputName">
+                <a>Name</a>
+                <input type="text"/>
+                <a class="ErrorName"></a>
+            </div>
+            <div class="InputPhone">
+                <a>Phone Number</a>
+                <input type="tel"/>
+                <a class="ErrorPhone"></a>
+            </div>
+            <div class="InputJobTitle">
+                <a>Job</a>
+                <input type="text"/>
+                <a class="ErrorJob"></a>
+            </div>
+            <div class="InputBirthDay">
+                <a>BirthDay</a>
+                <input type="date" />
+                <a class="BirthDay"></a>
+            </div>
+   
+        </div>
+        <a href="#" class="close">Закрыть окно</a>
+    </div>
 </div>
+<div class="MyTable">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Mobile Phone</th>
+            <th>JobTitle</th>
+            <th>BirthDate</th>
+            <th colspan="2"><a href="#" class="addButton">Добавить</a></th>
+        </tr>
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <th><a>@contact.Name</a></th>
+                <th><a>@contact.MobilePhone</a></th>
+                <th><a>@contact.JobTitle</a></th>
+                <th><a>@contact.BirthDay.ToShortDateString()</a></th>
+                <th><a href="#">Edit</a></th>
+                <th><a href="#">Delete</a></th>
+            </tr>
+        }
+    </table>
+</div>
+<a href="#zatemnenie">Вызвать всплывающее окно</a>

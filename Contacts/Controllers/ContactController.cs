@@ -1,14 +1,22 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Contacts.EfStuff.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Contacts.Controllers
 {
     public class ContactController : Controller
     {
-        // GET: ContactController
-        public ActionResult Index()
+        private ContactRepository _contactRepository;
+        public ContactController(ContactRepository contactRepository)
         {
-            return View();
+            _contactRepository = contactRepository;
+        }
+
+        
+        public IActionResult Index()
+        {
+            var contacts = _contactRepository.GetAll();
+            return View(contacts);
         }
 
 
