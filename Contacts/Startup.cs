@@ -13,7 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Contacts
-{
+{//STARTUP
     public class Startup
     {
         public Startup(IConfiguration configuration)
